@@ -44,6 +44,9 @@ function Rewards() {
                     <option>March</option>
                 </select>
             </div>
+            <div className="Rewards-cards-container">
+              <p> Hello This is testing cypress and branching and we are learning git here ...</p>
+            </div>
             <ul className="Rewards-cards-container">
                 {filteredRewards.map(reward => {
                     return (
