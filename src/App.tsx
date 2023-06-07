@@ -14,9 +14,9 @@ function App() {
         <div className="App-container">
           <SideNav />
           <Switch>
+            <Route strict exact path="/rewards" component={Rewards} />
             <Route strict exact path="/habits" component={Habit} />
             <Route strict exact path="/accomplishments" component={Accomplishment} />
-            <Route strict exact path="/rewards" component={Rewards} />
           </Switch>
         </div>
       </div>
