@@ -1,0 +1,22 @@
+name: Comment on Labeled Issue
+on:
+  issues:
+    types:
+      - labeled
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Post Comment
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        issue_number=${{ github.event.issue.number }}
+        comment="Thank you for adding the label! We're on it!"
+        curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
+             -d "{\"body\":\"$comment\"}" \
+             "https://api.github.com/repos/${{ github.repository }}/issues/${issue_number}/comments"
